@@ -76,7 +76,7 @@ namespace BankSystemApp
                             string strDate = ConvertDateFormat(strInputs[0]);
                             if (isValidDate(strDate, ref Msg) == true)
                             {
-                                if (strInputs[2] == "D" && strInputs[2] == "W")
+                                if (strInputs[2] == "D" || strInputs[2] == "W")
                                 {
                                     if (!string.IsNullOrEmpty(strInputs[3]))
                                     {
