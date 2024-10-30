@@ -16,8 +16,9 @@ namespace BankSystemEngineTest
         {
             // when BankingCenter instantiated, dummy account has been registered
             BankCenter bc = new BankCenter();
-            Assert.AreEqual(bc.getAllBankAccounts().Count,1);
-            Assert.AreEqual(bc.getAllInterestRules().Count, 1);
+            Assert.AreEqual(bc.getAllBankAccounts().Count,14);
+            Assert.AreEqual(bc.getAllInterestRules().Count, 21);
+            
         }
 
         [Test]
@@ -25,7 +26,7 @@ namespace BankSystemEngineTest
         {
             // when BankingCenter instantiated, dummy account has been registered
             BankCenter bc = new BankCenter();
-            BankAccount ba = new BankAccount() { AccountNo = "AC001", TransactionType = "D", TransactionAmount = 100.00, TransactionDate = DateTime.Parse("02/07/2023") };
+            BankAccount ba = new BankAccount() { AccountNo = "AC001", TransactionType = "D", TransactionAmount = 100.00, TransactionDate = DateTime.Parse("02/07/2023"),TransactionID="20230702" };
             string Msg = string.Empty;
             bool isTrue = bc.Banktransaction(ba, ref Msg);
             Assert.IsTrue(isTrue);
@@ -36,7 +37,7 @@ namespace BankSystemEngineTest
             // when BankingCenter instantiated, dummy account has been registered
             BankCenter bc = new BankCenter();
             string Msg = string.Empty;
-            BankAccount ba = new BankAccount() { AccountNo = "AC001", TransactionType = "W", TransactionAmount = 100.00, TransactionDate = DateTime.Parse("16/07/2023") };
+            BankAccount ba = new BankAccount() { AccountNo = "AC001", TransactionType = "W", TransactionAmount = 100.00, TransactionDate = DateTime.Parse("16/07/2023"), TransactionID = "20230716" };
             bool isTrue = bc.Banktransaction(ba, ref Msg);
             Assert.IsTrue(isTrue);
         }

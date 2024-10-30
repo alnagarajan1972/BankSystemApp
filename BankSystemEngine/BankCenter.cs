@@ -103,8 +103,13 @@ namespace BankSystemEngine
                 {
                     List<BankAccount> balance = new List<BankAccount>();
                     balance = bankAccounts.FindAll(x => x.AccountNo == ba.AccountNo);
-                    var bal = balance.Last();
-                    ba.BalanceAmount = bal.BalanceAmount + ba.TransactionAmount;
+                    if (balance.Count > 0)
+                    {
+                        var bal = balance.Last();
+                        ba.BalanceAmount = bal.BalanceAmount + ba.TransactionAmount;
+                    }
+                    else
+                        ba.BalanceAmount = ba.TransactionAmount;
                     ba.TransactionID = getTransactionID(ba.TransactionID);
                     bankAccounts.Add(ba);
                 }
